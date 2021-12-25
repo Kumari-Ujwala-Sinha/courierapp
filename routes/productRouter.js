@@ -9,7 +9,7 @@ router.route('/product')
     .post(auth, authAdmin, productCtrl.createProduct)
 
 router.route('/product/:id')
-    .delete(auth, authAdmin, productCtrl.deleteProduct)
+    .delete(auth, productCtrl.deleteProduct)
     .put(auth, authAdmin, productCtrl.updateProduct)
 
 router.route('/product/deliveryboytoaccept').get(auth,productCtrl.deliveryboytoaccept) 
