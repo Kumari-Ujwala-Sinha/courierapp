@@ -27,15 +27,16 @@ const userSchema = new mongoose.Schema({
     },
     profileImg:{
         type:String,
-        required:[true, "Please select profile image"]
+       
     },
-    adharImg:{
-        type:String,
-        required:[true, "Please select adhaar card image"]
+    businessCustomer:{
+        type:Boolean,
     },
-    vehicleType:{
+    officeAddress:{
         type:String,
-        required:[true, "Please select Vehicle Type"]
+    },
+    homeAddress:{
+        type:String,
     }
 }, {
     timestamps: true

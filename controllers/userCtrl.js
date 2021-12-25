@@ -15,9 +15,9 @@ const {CLIENT_URL} = process.env
 const userCtrl = {
     register: async (req, res) => {
         try {
-            const {name, email, password, phoneNo, profileImg, adharImg, vehicleType } = req.body
+            const {name, email, password, phoneNo, profileImg, businessCustomer } = req.body
             
-            if(!name || !email || !password || !phoneNo || !profileImg || !adharImg || !vehicleType)
+            if(!name || !email || !password || !phoneNo || !businessCustomer)
                 return res.status(400).json({msg: "Please fill in all fields."})
 
             if(!validateEmail(email))
@@ -32,7 +32,7 @@ const userCtrl = {
             const passwordHash = await bcrypt.hash(password, 12)
 
             const newUser = {
-                name, email, password: passwordHash, phoneNo, profileImg, adharImg, vehicleType
+                name, email, password: passwordHash, phoneNo, profileImg, businessCustomer
             }
 
             const activation_token = createActivationToken(newUser)
@@ -62,13 +62,13 @@ const userCtrl = {
             
             const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET)
 
-            const {name, email, password, phoneNo, profileImg, adharImg, vehicleType} = user
+            const {name, email, password, phoneNo, profileImg, businessCustomer} = user
 
             const check = await Users.findOne({email})
             if(check) return res.status(400).json({msg:"This email already exists."})
 
             const newUser = new Users({
-                name, email, password, phoneNo, profileImg, adharImg, vehicleType
+                name, email, password, phoneNo, profileImg, businessCustomer
             })
 
             await newUser.save()
@@ -83,7 +83,7 @@ const userCtrl = {
                 maxAge: 7*24*60*60*1000 // 7 days
             })
 
-            res.json({msg: 'Login Success!',
+            res.json({msg: 'Register Success!',
             access_token,
             user: {
                 ...newUser._doc,
