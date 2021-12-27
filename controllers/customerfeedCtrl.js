@@ -7,14 +7,16 @@ const customerfeedCtrl = {
       const {
         deliveryitem,
         phone,
-        message
+        message,
+        name
       } = req.body;
       const newCustomerfeed = new Customerfeed({
         deliveryitem,
         customer:req.user.id,
         deliveryitem,
         phone,
-        message
+        message,
+        name
       });
       await newCustomerfeed.save();
       res.json({ msg: "Saved your feedback" });
