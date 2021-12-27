@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const customerfeedSchema = mongoose.Schema({
     deliveryitem:{
         type:String,
-        required:[true, "Please enter delivery item name"],   
+          
     },
     customer:{
      type:String,
