@@ -65,7 +65,7 @@ const userCtrl = {
             const {name, email, password, phoneNo, profileImg, businessCustomer} = user
 
             const check = await Users.findOne({email})
-            if(check) return res.status(400).json({msg:"This email already exists."})
+            //if(check) return res.status(400).json({msg:"This email already exists."})
 
             const newUser = new Users({
                 name, email, password, phoneNo, profileImg, businessCustomer
