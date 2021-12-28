@@ -31,16 +31,17 @@ const productCtrl = {
     try {
       const {
         deliveryitem,
-        
+        Distance,
+        Length,
         addresstodeli,
         deliveryboy,
         category,
-        deliveryType,
+        deliveryMode,
         image,
         ServiceType,
         SedndingAddress,
         Price,
-        Frangible,
+        secureProduct,
         Weight,
         CourierType,
         CourierInfo,
@@ -53,17 +54,19 @@ const productCtrl = {
         addresstodeli,
         deliveryboy,
         category,
-        deliveryType,
+        deliveryMode,
         image,
         ServiceType,
         SedndingAddress,
         Price,
-        Frangible,
+        secureProduct,
         Weight,
         CourierType,
         CourierInfo,
+        Distance,
         Width,
-        Height
+        Height,
+        Length
       });
       await newProduct.save();
       res.json({ msg: "Created a Product" });

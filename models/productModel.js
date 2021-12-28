@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const productSchema = mongoose.Schema({
     deliveryitem:{
         type:String,
-        required:[true, "Please enter delivery item name"],   
+           
     },
     customer:{
      type:String,
@@ -18,8 +18,8 @@ const productSchema = mongoose.Schema({
     Price:{
         type:Number,
     },
-    Frangible:{
-        type:String,
+    secureProduct:{
+        type:Boolean,
     },
     Weight:{
         type:Number,
@@ -30,7 +30,13 @@ const productSchema = mongoose.Schema({
     Width:{
         type:Number,
     },
+    Length:{
+        type:Number,
+    },
     CourierType:{
+        type:String,
+    },
+    Distance:{
         type:String,
     },
     CourierInfo:{
@@ -48,7 +54,7 @@ const productSchema = mongoose.Schema({
         type:String,
         required:[true, "Please enter the delivery boy name"]
     },
-    deliveryType:{
+    deliveryMode:{
         type:String,
     },
     paymentMode:{

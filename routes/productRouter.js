@@ -6,11 +6,11 @@ const authAdmin = require('../middleware/authAdmin')
 
 router.route('/product')
     .get(productCtrl.getProducts)
-    .post(auth, authAdmin, productCtrl.createProduct)
+    .post(auth, productCtrl.createProduct)
 
 router.route('/product/:id')
     .delete(auth, productCtrl.deleteProduct)
-    .put(auth, authAdmin, productCtrl.updateProduct)
+    .put(auth, productCtrl.updateProduct)
 
 router.route('/product/deliveryboytoaccept').get(auth,productCtrl.deliveryboytoaccept) 
 router.route('/product/deliveryboytoaccept/:id').patch(auth,productCtrl.updatedeliveryaccepted)
