@@ -9,14 +9,14 @@ const customerfeedSchema = mongoose.Schema({
      type:String,
      required:true
     },
-    Phone:{
+    phone:{
         type:String
     },
     name:{
         type:String
     },
 
-    Message:{
+    message:{
         type:String,
     }
    
