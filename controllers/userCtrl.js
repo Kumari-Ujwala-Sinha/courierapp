@@ -17,7 +17,7 @@ const userCtrl = {
         try {
             const {name, email, password, phoneNo, profileImg, businessCustomer } = req.body
             
-            if(!name || !email || !password || !phoneNo || !businessCustomer)
+            if(!name || !email || !password || !phoneNo )
                 return res.status(400).json({msg: "Please fill in all fields."})
 
             if(!validateEmail(email))
@@ -51,14 +51,14 @@ const userCtrl = {
             sendMail(email, url, "Verify your email address")
 
 
-            res.json({msg: "Register Success! Please activate your email to start."})
+            res.json({msg: "Register Success! Please activate your email to start.",otp:otpcode})
         } catch (err) {
             return res.status(500).json({msg: err.message})
         }
     },
     activateEmail: async (req, res) => {
         try {
-            const {otpverify_id,activation_token} = req.body
+            const {otpverify_id,activation_token} = req
             
             const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET)
 

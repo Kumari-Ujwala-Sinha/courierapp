@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema({
     },
     businessCustomer:{
         type:Boolean,
+        default:false
     },
     officeAddress:{
         type:String,
