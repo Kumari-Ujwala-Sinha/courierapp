@@ -58,7 +58,7 @@ const userCtrl = {
     },
     activateEmail: async (req, res) => {
         try {
-            const {otpverify_id,activation_token} = req
+            const {otpverify_id,activation_token} = req.body
             
             const user = jwt.verify(activation_token, process.env.ACTIVATION_TOKEN_SECRET)
 
