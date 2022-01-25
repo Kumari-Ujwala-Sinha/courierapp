@@ -38,7 +38,20 @@ const userSchema = new mongoose.Schema({
     },
     homeAddress:{
         type:String,
+    },
+    businessName:{
+        type:String
+    },
+    gstNumber:{
+        type:String
+    },
+    panCardNo:{
+        type:String
+    },
+    adhaarCardNumber:{
+        type:String
     }
+
 }, {
     timestamps: true
 })
