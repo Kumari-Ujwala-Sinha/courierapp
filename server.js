@@ -18,6 +18,7 @@ app.use(fileUpload({
 // Routes
 app.use('/user', require('./routes/userRouter'))
 app.use('/api', require('./routes/productRouter'))
+app.use('/api', require('./routes/rateRouter'))
 
 app.use('/api', require('./routes/customerfeedRouter'))
 
